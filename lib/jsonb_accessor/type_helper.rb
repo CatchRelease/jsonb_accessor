@@ -19,8 +19,8 @@ module JsonbAccessor
       end
 
       def type_cast_as_jsonb(suspect)
-        type_cast_hash = jsonb.type_cast_from_user(suspect)
-        jsonb.type_cast_for_database(type_cast_hash)
+        type_cast_hash = jsonb.cast(suspect)
+        jsonb.serialize(type_cast_hash)
       end
 
       private

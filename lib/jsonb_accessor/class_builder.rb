@@ -65,7 +65,7 @@ module JsonbAccessor
             define_method(attribute_name) { attributes[attribute_name] }
 
             define_method("#{attribute_name}=") do |value|
-              cast_value = attributes_and_data_types[attribute_name].type_cast_from_user(value)
+              cast_value = attributes_and_data_types[attribute_name].cast(value)
               attributes[attribute_name] = cast_value
               update_parent
             end
