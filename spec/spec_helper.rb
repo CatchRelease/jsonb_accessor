@@ -9,16 +9,24 @@ require "awesome_print"
 require "database_cleaner"
 require "yaml"
 
+ActiveSupport.on_load(:active_record) do
+  ActiveRecord::Base.send(:include, JsonbAccessor)
+  ActiveRecord::Base.send(:include, JsonbAccessor::QueryBuilder)
+end
+
 class StaticProduct < ActiveRecord::Base
+  include JsonbAccessor, JsonbAccessor::QueryBuilder
   self.table_name = "products"
   belongs_to :product_category
 end
 
 class Product < StaticProduct
+  include JsonbAccessor, JsonbAccessor::QueryBuilder
   jsonb_accessor :options, title: :string, rank: :integer, made_at: :datetime
 end
 
 class ProductCategory < ActiveRecord::Base
+  include JsonbAccessor, JsonbAccessor::QueryBuilder
   jsonb_accessor :options, title: :string
   has_many :products
 end
@@ -28,6 +36,7 @@ RSpec::Matchers.define :attr_accessorize do |attribute_name|
     actual.respond_to?(attribute_name) && actual.respond_to?("#{attribute_name}=")
   end
 end
+
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
