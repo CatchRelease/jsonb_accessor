@@ -5,7 +5,7 @@ AllCops:
     - db/**/*
     - gemfiles/**/*
     - vendor/**/*
-Layout/SpaceBeforeFirstArg:
+Style/SpaceBeforeFirstArg:
   Enabled: false
 Lint/UnusedBlockArgument:
   Enabled: false
@@ -29,7 +29,7 @@ Metrics/BlockLength:
   Enabled: false
 Security/YAMLLoad:
   Enabled: false
-Layout/AlignParameters:
+Style/AlignParameters:
   Enabled: false
 Style/ClassAndModuleChildren:
   Enabled: false
@@ -39,15 +39,15 @@ Style/Documentation:
   Enabled: false
 Style/DoubleNegation:
   Enabled: false
-Naming/FileName:
+Style/FileName:
   Enabled: false
 Style/GuardClause:
   Enabled: false
-Layout/IndentHash:
+Style/IndentHash:
   Enabled: false
 Style/NilComparison:
   Enabled: false
-Naming/BinaryOperatorParameterName:
+Style/OpMethod:
   Enabled: false
 Style/RescueModifier:
   Enabled: false
@@ -55,7 +55,7 @@ Style/SignalException:
   Enabled: false
 Style/SingleLineMethods:
   Enabled: false
-Layout/SpaceAroundEqualsInParameterDefault:
+Style/SpaceAroundEqualsInParameterDefault:
   Enabled: false
 Style/StringLiterals:
   EnforcedStyle: double_quotes
