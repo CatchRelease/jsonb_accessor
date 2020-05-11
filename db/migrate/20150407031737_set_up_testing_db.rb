@@ -1,4 +1,4 @@
-class SetUpTestingDb < ActiveRecord::Migration[5.0]
+class SetUpTestingDb < ActiveRecord::Migration[6.0]
   def change
     create_table :products do |t|
       t.jsonb :options
